@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+							xmlns:s="library://ns.adobe.com/flex/spark" 
+							creationComplete="onCreateComplete(event)" 
+							>
+	
+	<fx:Style source="main.css" />
+	
+	<fx:Script>
+		<![CDATA[
+			import com.terrenceryan.finicky.fonts.LionsDen;
+			import com.terrenceryan.finicky.fonts.LionsDenTLF;
+			import com.terrenceryan.finicky.fonts.Spoleto;
+			import com.terrenceryan.finicky.fonts.TradeGothic;
+			import com.terrenceryan.finicky.fonts.TradeGothicBold;
+			import com.terrenceryan.finicky.fonts.TradeGothicBoldCondensed;
+			import com.terrenceryan.finicky.fonts.TradeGothicBoldCondensedTLF;
+			import com.terrenceryan.finicky.fonts.TradeGothicBoldTLF;
+			import com.terrenceryan.finicky.fonts.TradeGothicCondensed;
+			import com.terrenceryan.finicky.fonts.TradeGothicCondensedTLF;
+			import com.terrenceryan.finicky.fonts.TradeGothicTLF;
+			
+			import mx.events.FlexEvent;
+			
+			import views.Home;
+			
+			protected function onCreateComplete(event:FlexEvent):void
+			{
+				
+				this.actionBar.visible = false;
+				getFonts();
+				navigator.pushView(views.Home, cityList[randomRange(0,3)]);
+				
+			}
+			
+			protected function randomRange(max:Number, min:Number = 0):Number
+			{
+				return Math.random() * (max - min) + min;
+			}
+			
+			private function getFonts():void
+			{
+				var myFont1:Font = new Spoleto as Font;
+				var myFont2:Font = new LionsDen as Font;
+				var myFont3:Font = new TradeGothic as Font;
+				var myFont4:Font = new LionsDenTLF as Font;
+				var myFont5:Font = new TradeGothicTLF as Font;
+				var myFont6:Font = new TradeGothicBold as Font;
+				var myFont7:Font = new TradeGothicBoldTLF as Font;
+				var myFont10:Font = new TradeGothicBoldCondensed as Font;
+				var myFont11:Font = new TradeGothicBoldCondensedTLF as Font;
+				var myFont12:Font = new TradeGothicCondensed as Font;
+				var myFont13:Font = new TradeGothicCondensedTLF as Font;
+				
+				var fonts:Array = Font.enumerateFonts();
+				
+				for each (var key:Font in fonts)
+				{
+					trace(key.fontName + " - " + key.fontStyle + " - " + key.fontType);
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:ArrayCollection id="cityList">
+			<fx:Object city="Philadelphia" state="PA" />
+			<fx:Object city="Waltham" state="MA" />
+			<fx:Object city="San Jose" state="CA" />
+			<fx:Object city="Austin" state="TX" />
+		</s:ArrayCollection>
+	</fx:Declarations>
+</s:ViewNavigatorApplication>

@@ -1,0 +1,81 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace components "components.*";
+@namespace views "views.*";
+
+s|ViewNavigatorApplication{
+	skinClass: ClassReference("skins.AppSkin"); 
+}
+
+s|View{
+	backgroundAlpha: 0;	
+}	
+
+components|LocationLabel{
+	skinClass: ClassReference("skins.LocationLabelSkin");
+	fontFamily: "Spoleto";
+	color: #FFFFFF;
+}
+
+
+
+
+#filterBtn{
+	skinClass: ClassReference("skins.FilterButtonSkin");
+	fontFamily: "Lions Den";
+}
+
+views|Home, views|Detail{
+	skinClass: ClassReference("skins.ViewSkin");
+	
+}
+
+components|DetailBanner{
+	skinClass: ClassReference("skins.DetailBannerSkin");
+	fontFamily: "Lions Den";
+	
+	
+}
+
+#comments{
+	skinClass: ClassReference("skins.NoteSkin");
+	fontFamily: "Lions Den";
+}
+
+.item{
+	fontFamily: "Lions Den";
+}
+
+.place{
+	fontFamily: "Trade Gothic LT Std";
+	fontWeight: bold;
+}
+
+#itemList{
+	contentBackgroundAlpha: 0;
+}
+
+@media(application-dpi:160){
+	
+	.item{font-size: 20px;}
+	.place{font-size: 9px;}
+	components|DetailBanner{font-size: 20px;}
+	components|LocationLabel{font-size: 45px;}
+		
+	
+}
+@media(application-dpi:240){
+	
+	.item{font-size: 30px;}
+	.place{font-size: 15px;}
+	components|DetailBanner{font-size: 30px;}
+	components|LocationLabel{font-size: 60px;}
+	
+}
+
+@media(application-dpi:320){
+	.item{font-size: 40px;}
+	.place{font-size: 18px;}
+	components|DetailBanner{font-size: 40px;}
+	components|LocationLabel{font-size: 90px;}
+}	

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"  actionBarVisible="false" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Detail" xmlns:components="components.*">
+	
+	<components:DetailBanner id="itemName" text="{data.item}" horizontalCenter="0" width="100%"  />
+	<s:Label id="placeName" top="{itemName.y + itemName.height}"  text="{data.place}" horizontalCenter="0" />
+	<s:TextArea id="comments" top="{placeName.y + placeName.height}"  width="100%" />
+	
+	
+	
+	
+</s:View> 

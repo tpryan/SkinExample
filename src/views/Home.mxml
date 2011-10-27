@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" actionBarVisible="false" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		title="HomeView" xmlns:renderers="renderers.*" xmlns:components="components.*">
+	
+	<fx:Script>
+		<![CDATA[
+			protected function itemList_clickHandler(event:MouseEvent):void
+			{
+				navigator.pushView(Detail,itemList.selectedItem);
+			}
+		]]>
+	</fx:Script>
+	
+	<s:List id="itemList" top="{location.y + location.height + 10}" bottom="0" width="100%" dataProvider="{items}" click="itemList_clickHandler(event)">
+		<s:itemRenderer>
+			<fx:Component>
+				<renderers:ItemListRenderer labelField="item" messageFunction="getPlace" styleName="item" 
+										decorator="@Embed('/assets/skins/itemListUp.png') "
+										messageStyleName="place">
+					<fx:Script>
+						<![CDATA[
+							protected function getPlace(obj:Object):String{
+								return obj.place.toUpperCase() + " \n(" + obj.distance +")"; 
+							}
+						]]>
+					</fx:Script>
+				</renderers:ItemListRenderer>
+			</fx:Component>
+		</s:itemRenderer>
+	</s:List>
+	<components:LocationLabel id="location" text="{data.city}, {data.state}" />
+	<s:Button id="filterBtn" right="10" y="{location.y}" label="sort"/>
+	
+	<fx:Declarations>
+		<s:ArrayCollection id="items">
+			<fx:Object item="Coffee" place="McCrossen's Tavern" distance="332ft" />
+			<fx:Object item="Stoudt's Double Bock" place="McCrossen's Tavern"  distance="332ft" />
+			<fx:Object item="Yuengling Lager" place="Philly Pub and Grub" distance="433ft" />
+			<fx:Object item="Coke Zero" place="Wawa"  distance="502ft" />
+			<fx:Object item="Coffee" place="Wawa"   distance="502ft" />
+			<fx:Object item="Cloves" place="Holt's"   distance=".92mi" />
+			<fx:Object item="Cigars" place="Holt's"   distance=".92mi" />
+			<fx:Object item="Cloves" place="Avril 50"   distance="1.14mi" />
+			<fx:Object item="Cigars" place="Avril 50"   distance="1.14mi" />
+		</s:ArrayCollection>
+	</fx:Declarations>
+</s:View>
